@@ -4,6 +4,8 @@ connection: "thelook_events_redshift"
 # include: "/views/**/*.view"
 include: "/views/order_items.view.lkml"
 include: "/views/users.view.lkml"
+include: "/views/users_ndt1.view.lkml"
+# include: "/views/users_ndt2.view.lkml"
 
 datagroup: sandbox_timg2_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -11,6 +13,7 @@ datagroup: sandbox_timg2_default_datagroup {
 }
 
 explore: users {}
+explore: users_ndt1 {}
 
 explore: order_items {}
 

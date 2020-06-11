@@ -78,8 +78,10 @@ view: order_items {
   }
 
   dimension: sale_price {
-    type: number
+    type: tier
+    tiers: [1, 5, 10, 20, 100, 1000]
     sql: ${TABLE}.sale_price ;;
+    style: integer
   }
 
   dimension_group: shipped {

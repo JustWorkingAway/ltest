@@ -2,10 +2,10 @@ view: users {
   sql_table_name: public.users ;;
   drill_fields: [id]
 
-  parameter: myval {
-    suggest_explore: users
-    suggest_dimension: country
-  }
+#   parameter: myval {
+#     suggest_explore: users
+#     suggest_dimension: country
+#   }
 
   dimension: id {
     primary_key: yes
@@ -16,6 +16,13 @@ view: users {
   dimension: age {
     type: number
     sql: ${TABLE}.age ;;
+  }
+
+  dimension: age_group {
+    type: tier
+    tiers: [18, 23, 30, 40, 50, 60]
+    style: integer
+    sql: ${age} ;;
   }
 
   dimension: city {
